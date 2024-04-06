@@ -33,6 +33,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import 'react-toastify/dist/ReactToastify.css';
 
 import HomePage from './pages/homePage';
+import News from './pages/news';
+
+
 
 function App() {
 
@@ -40,6 +43,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/news' element={<News />} />
       </Routes>
     </Router>
   );
