@@ -9,11 +9,25 @@ async function searchNYT(props) {
         `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=environment&api-key=c2Chkr1TAOzl2QYPwMOzrg0tKiH1szyH`
     );
     const data = await response.json();
+
     if (data.status === "OK") {
         return data.response.docs;
     } else {
         console.log(data.fault.faultstring);
         return data.fault.details;
+    }
+}
+
+async function searchNewsapi(props) {
+    const response = await fetch(
+        `https://newsapi.org/v2/everything?domains=environment&apiKey=1137ef0895fe4a5a963072da204c4b60`
+    );
+    const data = await response.json();
+    console.log(data.articles);
+    if (data.status === "OK") {
+        return data.articles;
+    } else {
+        return "error";
     }
 }
 
@@ -31,22 +45,135 @@ async function searchGRD(props) {
 
 function nytNewsCard(news) {
     return (
-        <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+        // <Card sx={{ height: "100%", display: "flex", flexDirection: "column", color: "green" }}>
+        //     <CardContent>
+        //         <Typography variant="h5" gutterBottom>
+        //             {` ${news.headline.main.slice(0, 50)}...`}
+        //         </Typography>
+        //         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+        //             Author:
+        //             {` ${news.byline.original}`}
+        //         </Typography>
+        //         <Typography variant="body2">
+        //             {news.abstract.slice(0, 200)}
+        //             {"..."}
+        //         </Typography>
+        //     </CardContent>
+        //     <CardActions sx={{ marginTop: "auto" }}>
+        //         <Button size="small" href={news.web_url} target="_blank">
+        //             Read More
+        //         </Button>
+        //     </CardActions>
+        // </Card>
+        // <Card sx={{
+        //     height: "100%",
+        //     display: "flex",
+        //     flexDirection: "column",
+        //     color: "white", // Text color
+        //     backgroundImage: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)", // Gradient background
+        //     padding: "10px",
+        //     borderRadius: "8px"
+        // }}>
+        //     <CardContent>
+        //         <Typography variant="h5" gutterBottom>
+        //             {news.headline.main.slice(0, 50)}...
+        //         </Typography>
+        //         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+        //             Author: {news.byline.original}
+        //         </Typography>
+        //         <Typography variant="body2">
+        //             {news.abstract.slice(0, 200)}...
+        //         </Typography>
+        //     </CardContent>
+        //     <CardActions sx={{ marginTop: "auto" }}>
+        //         <Button size="small" href={news.web_url} target="_blank">
+        //             Read More
+        //         </Button>
+        //     </CardActions>
+        // </Card>
+
+        // <Card sx={{
+        //     height: "100%",
+        //     display: "flex",
+        //     flexDirection: "column",
+        //     color: "#333", // Text color (dark gray)
+        //     backgroundColor: "#FCFCFC", // Light neutral background
+        //     boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)", // Soft shadow
+        //     borderRadius: "8px",
+        //     padding: "20px",
+        //     transition: "transform 0.2s ease-in-out",
+        //     "&:hover": {
+        //         transform: "scale(1.03)", // Scale up on hover
+        //     }
+        // }}>
+        //     <CardContent>
+        //         <Typography variant="h5" gutterBottom>
+        //             {news.headline.main.slice(0, 50)}...
+        //         </Typography>
+        //         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+        //             Author: {news.byline.original}
+        //         </Typography>
+        //         <Typography variant="body2">
+        //             {news.abstract.slice(0, 200)}...
+        //         </Typography>
+        //     </CardContent>
+        //     <CardActions sx={{ marginTop: "auto" }}>
+        //         <Button
+        //             size="small"
+        //             href={news.web_url}
+        //             target="_blank"
+        //             sx={{
+        //                 backgroundColor: "#87CEEB", // Light blue button
+        //                 color: "#FFF", // White text on button
+        //                 "&:hover": {
+        //                     backgroundColor: "#7FDBCA", // Lighter blue on hover
+        //                 }
+        //             }}
+        //         >
+        //             Read More
+        //         </Button>
+        //     </CardActions>
+        // </Card>
+
+        <Card sx={{
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            color: "#333", // Text color (dark gray)
+            backgroundColor: "#F5F5F5", // Light gray background
+            boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)", // Soft shadow
+            borderRadius: "8px",
+            padding: "20px",
+            transition: "transform 0.2s ease-in-out",
+            "&:hover": {
+                transform: "scale(1.03)", // Scale up on hover
+            },
+            padding: "10px",
+        }}>
             <CardContent>
                 <Typography variant="h5" gutterBottom>
-                    {` ${news.headline.main.slice(0, 50)}...`}
+                    {news.headline.main.slice(0, 50)}...
                 </Typography>
                 <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-                    Author:
-                    {` ${news.byline.original}`}
+                    Author: {news.byline.original}
                 </Typography>
                 <Typography variant="body2">
-                    {news.abstract.slice(0, 200)}
-                    {"..."}
+                    {news.abstract.slice(0, 200)}...
                 </Typography>
             </CardContent>
             <CardActions sx={{ marginTop: "auto" }}>
-                <Button size="small" href={news.web_url} target="_blank">
+                <Button
+                    size="small"
+                    href={news.web_url}
+                    target="_blank"
+                    sx={{
+                        backgroundColor: "#87CEEB", // Light blue button
+                        color: "#FFF", // White text on button
+                        "&:hover": {
+                            backgroundColor: "#7FDBCA", // Lighter blue on hover
+                        }
+                    }}
+                >
                     Read More
                 </Button>
             </CardActions>
@@ -56,7 +183,22 @@ function nytNewsCard(news) {
 
 function grdNewsCard(news) {
     return (
-        <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+        <Card sx={{
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            color: "#333", // Text color (dark gray)
+            backgroundColor: "#F5F5F5", // Light gray background
+            boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)", // Soft shadow
+            borderRadius: "8px",
+            padding: "20px",
+            transition: "transform 0.2s ease-in-out",
+            "&:hover": {
+                transform: "scale(1.03)", // Scale up on hover
+            },
+            padding: "10px",
+        }}>
+
             <CardContent>
                 <Typography variant="h5" gutterBottom>
                     Title:
@@ -72,7 +214,39 @@ function grdNewsCard(news) {
                 </Typography>
             </CardContent>
             <CardActions sx={{ marginTop: "auto" }}>
-                <Button size="small" href={news.web_url} target="_blank">
+                <Button size="small" href={news.web_url} target="_blank" sx={{
+                    backgroundColor: "#87CEEB", // Light blue button
+                    color: "#FFF", // White text on button
+                    "&:hover": {
+                        backgroundColor: "#7FDBCA", // Lighter blue on hover
+                    }
+                }}>
+                    Read More
+                </Button>
+            </CardActions>
+        </Card>
+    );
+};
+
+function apiNewsCard(news) {
+    return (
+        <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+            <CardContent>
+                <Typography variant="h5" gutterBottom>
+                    Title:
+                    {` ${news.title.slice(0, 50)}...`}
+                </Typography>
+                <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                    Author:
+                    {` ${news.author}`}
+                </Typography>
+                <Typography variant="body2">
+                    {news.description.slice(0, 200)}
+                    {"..."}
+                </Typography>
+            </CardContent>
+            <CardActions sx={{ marginTop: "auto" }}>
+                <Button size="small" href={news.url} target="_blank">
                     Read More
                 </Button>
             </CardActions>
@@ -87,6 +261,7 @@ function News() {
     const [nflag, setNflag] = useState(false);
     const [gflag, setGflag] = useState(false);
     const [grdNews, setGrdNews] = useState([]);
+    const [news100, setNews100] = useState([]);
     useEffect(() => {
         console.log(`searching for ${query}`);
         searchNYT(query).then((data) => {
@@ -97,6 +272,7 @@ function News() {
             setGrdNews(data);
             setGflag(true);
         });
+
     }, [query]);
 
 
@@ -109,11 +285,11 @@ function News() {
     }
     else {
         return (
-            <div style={{ padding: "20px" }}>
+            <div style={{ padding: "20px", backgroundColor: "#B4F1C1" }}>
                 <Typography variant="h4" gutterBottom>
                     Latest News
                 </Typography>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} sx={{ padding: '5px' }}>
                     {nytNews?.map((news) => (
                         <Grid item key={news.id} xs={12} sm={6} md={4}>
                             {nytNewsCard(news)}
@@ -124,6 +300,7 @@ function News() {
                             {grdNewsCard(news)}
                         </Grid>
                     ))}
+
                 </Grid>
             </div>
         );

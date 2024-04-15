@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+/api_keys.txt
+
 # production
 /build
 
