@@ -70,7 +70,7 @@ function HomePage() {
                                 image="zero_waste.jpg"
                             />
                             <CardContent>
-                                <Button onClick={() => navigate('/blogs')}>
+                                <Button onClick={() => navigate('/announcements')}>
                                     <Typography gutterBottom variant="h5" component="h2">
                                         Blogs
                                     </Typography>

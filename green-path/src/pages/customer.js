@@ -7,6 +7,9 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Customer({ handleSelectChange, handleMinPriceChange, handleMaxPriceChange, fetchItemLink, item1 }) {
 
     const [title, setTitle] = useState("");
+    const [minprice, setMinprice] = useState("");
+    const [maxprice, setMaxprice] = useState("");
+    const [item, setItem] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState(new Date());
     const [loading, setLoading] = useState(false);
@@ -19,8 +22,7 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
         // Create a new announcement object
         const product = {
             title,
-            description,
-            date: date.toISOString(),
+
         };
 
         // console.log(newAnnouncement);
@@ -41,7 +43,6 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                 throw new Error(data.message);
             }
 
-            navigate("/products");
         }
         catch (err) {
 
@@ -53,6 +54,7 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
             }
         }
     }
+    console.log(maxprice);
     return (
         <>
             <h2>Help save the environment</h2>
@@ -65,7 +67,7 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                         <form onSubmit={handleSubmit}>
                             <div class="product">
                                 <label class="items" for="items">Product: </label>
-                                <select class="itemSelect" onChange={handleSelectChange}>
+                                <select class="itemSelect" onChange={(e) => setItem(e.target.value)}>
                                     <option value="laundry">Laundry</option>
                                     <option value="kitchen">Kitchen</option>
                                     <option value="pcare">Personal care</option>
@@ -76,16 +78,16 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                             </div>
 
                             <div class="mp">
-                                <label for="minPrice">Minimum Price:</label>
-                                <input type="number" class="price" id="minPrice" name="minPrice" onChange={handleMinPriceChange} />
+                                <label for="minPrice" >Minimum Price:</label>
+                                <input type="number" class="price" id="minPrice" name="minPrice" onChange={(e) => setMinprice(e.target.value)} />
                             </div>
                             <div class="Mp">
                                 <label for="maxPrice">Maximum Price:</label>
-                                <input type="number" class="price" id="maxPrice" name="maxPrice" onChange={handleMaxPriceChange} />
+                                <input type="number" class="price" id="maxPrice" name="maxPrice" onChange={(e) => setMaxprice(e.target.value)} />
                             </div>
 
                             <div class="fetch">
-                                <Button variant="contained" onClick={fetchItemLink}>Fetch Item</Button>
+                                <Button variant="contained">Fetch Item</Button>
                                 {/* <button onChange={fetchItemLink}>Fetch Item Link</button> */}
                             </div>
                         </form>
