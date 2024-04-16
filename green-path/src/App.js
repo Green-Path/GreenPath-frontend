@@ -34,8 +34,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from './pages/homePage';
 import News from './pages/news';
-
-
+import Blogs from './pages/blogs';
+import Customer from './pages/customer';
+import Announcements from './pages/showBlogs';
 
 function App() {
 
@@ -44,6 +45,9 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/news' element={<News />} />
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/customer' element={<Customer />} />
+        <Route path='/announcements' element={<Announcements />} />
       </Routes>
     </Router>
   );

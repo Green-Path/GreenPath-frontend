@@ -1,0 +1,71 @@
+h1 {
+  margin-bottom: 5rem;
+  color: green;
+}
+
+h2 {
+  color: green;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.selection,
+.disp {
+  /* margin-left: 1rem; */
+  font-size: 2rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.product {
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.items {
+  margin-right: 7rem;
+}
+
+.itemSelect {
+  width: 170px;
+  height: 2rem;
+}
+
+.price {
+  height: 2rem;
+  margin-left: 1rem;
+}
+
+#maxPrice {
+  margin-left: 0.7rem;
+}
+
+.mp,
+.Mp {
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.fetch {
+  margin-left: 17rem;
+  margin-top: 2rem;
+  width: 10rem;
+}
+
+.buy {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.name,
+.finprice {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+    
