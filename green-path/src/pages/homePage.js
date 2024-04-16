@@ -1,9 +1,10 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Container, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function homePage() {
+function HomePage() {
+    const navigate = useNavigate();
     return (
-
         <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh' }}>
             <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
                 <Toolbar>
@@ -28,11 +29,13 @@ function homePage() {
                                 image="energy_appliances.jpg"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Finding Energy-Efficient Appliances
-                                </Typography>
+                                <Button onClick={() => navigate('/customer')}>
+
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Finding Energy-Efficient Products
+                                    </Typography>
+                                </Button>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Description of this section...
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -46,11 +49,14 @@ function homePage() {
                                 image="resources.jpg"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Resources
-                                </Typography>
+                                <Button onClick={() => navigate('/news')}>
+
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        News Resources
+                                    </Typography>
+                                </Button>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Description of this section...
+
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -64,19 +70,20 @@ function homePage() {
                                 image="zero_waste.jpg"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Zero-Waste Lifestyle
-                                </Typography>
+                                <Button onClick={() => navigate('/blogs')}>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Blogs
+                                    </Typography>
+                                </Button>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Description of this section...
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                 </Grid>
             </Container>
-        </div>
+        </div >
     );
 }
 
-export default homePage;
+export default HomePage;
