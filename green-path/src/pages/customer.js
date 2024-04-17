@@ -68,10 +68,10 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                             <div class="product">
                                 <label class="items" for="items">Product: </label>
                                 <select class="itemSelect" onChange={(e) => setItem(e.target.value)}>
-                                    <option value="laundry">Laundry</option>
-                                    <option value="kitchen">Kitchen</option>
-                                    <option value="pcare">Personal care</option>
-                                    <option value="cleaning">Cleaning</option>
+                                    <option value="Laundry">Laundry</option>
+                                    <option value="Kitchen">Kitchen</option>
+                                    <option value="Skin">Personal care</option>
+                                    <option value="Cleaning">Cleaning</option>
                                     {/* <!-- Add more options as needed --> */}
                                 </select>
 

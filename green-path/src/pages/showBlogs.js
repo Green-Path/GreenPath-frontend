@@ -31,11 +31,10 @@ const Announcements = ({ title }) => {
     const [filteredAnnouncements, setFilteredAnnouncements] = useState([]); // Add filteredAnnouncements state
 
     useEffect(() => {
-        fetch(`https://back-end-production-3140.up.railway.app/api/announcements/company/${id}`, {
+        fetch(`http://localhost:5000/blogs`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('token')}`
             },
         })
             .then((res) => res.json())
@@ -70,7 +69,7 @@ const Announcements = ({ title }) => {
         const filtered = announcements.filter(
             (announcement) =>
                 announcement?.title?.toLowerCase().includes(value.toLowerCase()) ||
-                announcement?.description?.toLowerCase().includes(value.toLowerCase())
+                announcement?.text?.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredAnnouncements(filtered);
     };
@@ -132,7 +131,7 @@ const Announcements = ({ title }) => {
                                         }
                                         secondary={
                                             <div>
-                                                <Typography>{announcement.description}</Typography>
+                                                <Typography>{announcement.text}</Typography>
                                                 <Typography
                                                     sx={{
                                                         fontSize: 12,
