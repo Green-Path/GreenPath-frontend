@@ -15,21 +15,20 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        ;
 
-        // Create a new announcement object
+        // Create a new product object
         const product = {
-            title,
-
+            type: item,
+            minPrice: minprice,
+            maxPrice: maxprice
         };
 
-        // console.log(newAnnouncement);
-
         try {
-            const res = await fetch(`/blogs`, {
-                method: "GET",
+            const res = await fetch(`http://localhost:5000/products`, {
+                method: "POST",
                 headers: {
                     "content-type": "application/json",
                 },
@@ -37,24 +36,23 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
             });
 
             const data = await res.json();
-            // console.log(data);
 
             if (!res.ok) {
                 throw new Error(data.message);
             }
-
+            // If the request is successful, you can handle the response here
+            console.log(data);
         }
         catch (err) {
-
+            // Handle errors
             if (err.message) {
                 setError(err.message);
-            }
-            else {
+            } else {
                 setError("Something went wrong. Please try again later.");
             }
         }
     }
-    console.log(maxprice);
+
     return (
         <>
             <h2>Help save the environment</h2>
@@ -87,49 +85,14 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                             </div>
 
                             <div class="fetch">
-                                <Button variant="contained">Fetch Item</Button>
+                                <Button type="submit" variant="contained">Fetch Item</Button>
                                 {/* <button onChange={fetchItemLink}>Fetch Item Link</button> */}
                             </div>
                         </form>
 
                     </div>
                 </Paper>
-                {/* <Paper elevation={4} style={{ width: "40%" }}>
-                    <div class="disp" >
-                        <div class="name">
-                            <label class="ProdName">Product Name: </label>
-                        </div>
-                        <br />
-                        <div class="finprice" >
-                            <label className="prodprice">Price: </label>
-                        </div>
-                        <br />
-                        <div class="buy" >
-                            <Button variant="outlined" href="------link---------">
-                                Link to buy
-                            </Button>
-                        </div>
-
-                    </div>
-                </Paper> */}
             </div>
-
-
         </>
     )
 }
-/*
- function fetchItemLink() {
-      const itemSelect = document.getElementById('itemSelect');
-      const selectedValue = itemSelect.options[itemSelect.selectedIndex].value;
-      const minPrice = document.getElementById('minPrice').value;
-      const maxPrice = document.getElementById('maxPrice').value;
-
-     
-
-      // Perform AJAX request to fetch item link based on selected option and price range
-      
-      
-      document.getElementById('itemLink').innerHTML = `Selected Item: ${selectedValue}<br>Minimum Price: ${minPrice}<br>Maximum Price: ${maxPrice}`;
-    }
-*/

@@ -36,37 +36,46 @@ const Blogs = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:5000/addblog`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newAnnouncement),
-      });
-
-      if (!res.ok) {
-        throw new Error(data.message);
+        const res = await fetch(`http://localhost:5000/addblog`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newAnnouncement),
+        });
+  
+        if (!res.ok) {
+          throw new Error(data.message);
+        }
+        
+        navigate('/announcements')
+  
+        const data = await res.json(); // Wait for response data
+  
+        console.log(data); // Print data if needed
+  
+        setLoading(false);
+        setSuccess(true);
+        setError("");
+        
+        // ; // Navigate after successful response
+      } catch (err) {
+        setLoading(false);
+        setSuccess(false);
+  
+        if (err.message) {
+          setError(err.message);
+        } else {
+          setError("Something went wrong. Please try again later.");
+        }
       }
 
-      const data = await res.json(); // Wait for response data
+     
+    
+};
+   
 
-      console.log(data); // Print data if needed
-
-      setLoading(false);
-      setSuccess(true);
-      setError("");
-      navigate('/announcements'); // Navigate after successful response
-    } catch (err) {
-      setLoading(false);
-      setSuccess(false);
-
-      if (err.message) {
-        setError(err.message);
-      } else {
-        setError("Something went wrong. Please try again later.");
-      }
-    }
-  };
+  
 
   return (
     <div style={{
@@ -102,7 +111,7 @@ const Blogs = () => {
             required
           />
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Button type="submit" variant="contained" color="primary" sx={{ my: 2, width: '15vw' }}>
+            <Button  onClick={(e)=>{handleSubmit(e)}}type="submit" variant="contained" color="primary" sx={{ my: 2, width: '15vw' }}  >
               Add Blog
             </Button>
           </div>
