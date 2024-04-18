@@ -78,118 +78,124 @@ const Announcements = ({ title }) => {
     return (
         <div>
 
-<AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
+            <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
                 <Toolbar>
-                    <Button onClick={(e)=>{navigate('/')}}>
-                        <Typography variant="h6" style={{ flexGrow: 1 }}>
+                    <Button onClick={(e) => { navigate('/') }} style={{}}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
                             GreenPath
                         </Typography>
                     </Button>
-                    <Button color="inherit">About Us</Button>
-                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            About Us
+                        </Typography>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}><Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                        Contact Us
+                    </Typography></Button>
                 </Toolbar>
             </AppBar>
-        <div style={{ position: 'relative', padding: "5vh 5vh", backgroundColor: "B4F1C1" }}>
-            
-            <Paper sx={{ py: 1, px: 3 }} className="container">
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                    }}
-                >
-                    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                        <Typography variant="h5" sx={{ pt: 1, pb: 1 }}>
-                            Blogs {title}:
-                        </Typography>
-                        <Autocomplete
-                            disablePortal
-                            id="search-announcement"
-                            options={filteredAnnouncements.map((announcement) => announcement.title)}
-                            value={searchInput}
-                            onChange={(_, newValue) => handleSearch(newValue)}
-                            renderInput={(params) => (
-                                <TextField
-                                    {...params}
-                                    label="Search title"
-                                    sx={{
-                                        width: '100%',
-                                        margin: "10px auto",
-                                    }}
-                                />
-                            )}
-                        />
-                    </div>
-                </div>
+            <div style={{ position: 'relative', padding: "5vh 5vh", backgroundColor: "B4F1C1" }}>
 
-                {loading ? (
-                    <p>Loading...</p>
-                ) : announcements && announcements.length > 0 ? (
-                    <List className="list">
-                        {(searchInput ? filteredAnnouncements : announcements)
-                            .slice()
-                            .reverse()
-                            .map((announcement, index) => (
-                                <ListItem key={index} className="item">
-                                    <ListItemText
-                                        primary={
-                                            <div
-                                                style={{
-                                                    display: "flex",
-                                                    justifyContent: "space-between",
-                                                }}
-                                            >
-                                                <Typography>{announcement.title}</Typography>
-                                            </div>
-                                        }
-                                        secondary={
-                                            <div>
-                                                <Typography>{announcement.text}</Typography>
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: 12,
-                                                        fontStyle: "italic",
-                                                        textAlign: "right",
-                                                    }}
-                                                    color="text.secondary"
-                                                >
-                                                    {new Date(announcement.date).toLocaleString()}
-                                                </Typography>
-                                            </div>
-                                        }
-                                        secondaryTypographyProps={{ variant: "body2" }}
-                                    />
-                                </ListItem>
-                            ))}
-                    </List>
-                ) : (
+                <Paper sx={{ py: 1, px: 3 }} className="container">
                     <div
                         style={{
-                            minHeight: "40vh",
                             display: "flex",
-                            justifyContent: "center",
                             alignItems: "center",
+                            justifyContent: "space-between",
                         }}
                     >
-                        <Typography sx={{ textAlign: "center" }} variant="body1">
-                            {searchInput
-                                ? "No matching announcements found"
-                                : "No data to display"}
-                        </Typography>
+                        <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+                            <Typography variant="h5" sx={{ pt: 1, pb: 1 }}>
+                                Blogs {title}:
+                            </Typography>
+                            <Autocomplete
+                                disablePortal
+                                id="search-announcement"
+                                options={filteredAnnouncements.map((announcement) => announcement.title)}
+                                value={searchInput}
+                                onChange={(_, newValue) => handleSearch(newValue)}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        label="Search title"
+                                        sx={{
+                                            width: '100%',
+                                            margin: "10px auto",
+                                        }}
+                                    />
+                                )}
+                            />
+                        </div>
                     </div>
-                )}
-            </Paper>
 
-            <Fab
-                color="primary"
-                aria-label="add"
-                sx={{ position: 'fixed', bottom: 60, right: 20 }}
-                onClick={() => navigate('/blogs')}
-            >
-                <AddIcon />
-            </Fab>
-        </div>
+                    {loading ? (
+                        <p>Loading...</p>
+                    ) : announcements && announcements.length > 0 ? (
+                        <List className="list">
+                            {(searchInput ? filteredAnnouncements : announcements)
+                                .slice()
+                                .reverse()
+                                .map((announcement, index) => (
+                                    <ListItem key={index} className="item">
+                                        <ListItemText
+                                            primary={
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        justifyContent: "space-between",
+                                                    }}
+                                                >
+                                                    <Typography>{announcement.title}</Typography>
+                                                </div>
+                                            }
+                                            secondary={
+                                                <div>
+                                                    <Typography>{announcement.text}</Typography>
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: 12,
+                                                            fontStyle: "italic",
+                                                            textAlign: "right",
+                                                        }}
+                                                        color="text.secondary"
+                                                    >
+                                                        {new Date(announcement.date).toLocaleString()}
+                                                    </Typography>
+                                                </div>
+                                            }
+                                            secondaryTypographyProps={{ variant: "body2" }}
+                                        />
+                                    </ListItem>
+                                ))}
+                        </List>
+                    ) : (
+                        <div
+                            style={{
+                                minHeight: "40vh",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Typography sx={{ textAlign: "center" }} variant="body1">
+                                {searchInput
+                                    ? "No matching announcements found"
+                                    : "No data to display"}
+                            </Typography>
+                        </div>
+                    )}
+                </Paper>
+
+                <Fab
+                    color="primary"
+                    aria-label="add"
+                    sx={{ position: 'fixed', bottom: 60, right: 20 }}
+                    onClick={() => navigate('/blogs')}
+                >
+                    <AddIcon />
+                </Fab>
+            </div>
         </div>
     );
 };

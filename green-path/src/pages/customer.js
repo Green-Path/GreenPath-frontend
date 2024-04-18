@@ -1,8 +1,8 @@
 import "../css/product.css";
 import { useState } from "react";
-import { Paper, Button, Typography,Toolbar,AppBar } from '@mui/material';
+import { Paper, Button, Typography, Toolbar, AppBar } from '@mui/material';
 import React, { useContext, useEffect } from "react";
-import { useNavigate, useParams,useHistory } from "react-router-dom";
+import { useNavigate, useParams, useHistory } from "react-router-dom";
 
 export default function Customer({ handleSelectChange, handleMinPriceChange, handleMaxPriceChange, fetchItemLink, item1 }) {
     // const history = useHistory();
@@ -41,7 +41,7 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                 throw new Error(data.message);
             }
             // If the request is successful, you can handle the response here
-            navigate("/c",{state:{d:data}})
+            navigate("/c", { state: { d: data } })
             console.log(data);
         }
         catch (err) {
@@ -58,13 +58,19 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
         <>
             <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
                 <Toolbar>
-                        <Typography variant="h6" style={{ flexGrow: 1 }}>
-                            <Button onClick={(e)=>{navigate('/')}}>
-                                    GreenPath
-                            </Button>
+                    <Button onClick={(e) => { navigate('/') }} style={{}}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            GreenPath
                         </Typography>
-                    <Button color="inherit">About Us</Button>
-                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            About Us
+                        </Typography>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}><Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                        Contact Us
+                    </Typography></Button>
                 </Toolbar>
             </AppBar>
             <h2>Help save the environment</h2>
@@ -73,11 +79,11 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
             <div class="main">
 
                 <Paper elevation={4} style={{ width: "40%", marginRight: "2rem" }} >
-                    <div class="selection">
+                    <div class="selection" >
                         <form onSubmit={handleSubmit}>
                             <div class="product">
                                 <label class="items" for="items">Product: </label>
-                                <select class="itemSelect" onChange={(e) => setItem(e.target.value)}>
+                                <select class="mp" onChange={(e) => setItem(e.target.value)}>
                                     <option value="Laundry">Laundry</option>
                                     <option value="Kitchen">Kitchen</option>
                                     <option value="Skin">Personal care</option>
@@ -103,8 +109,8 @@ export default function Customer({ handleSelectChange, handleMinPriceChange, han
                         </form>
 
                     </div>
-                </Paper>
-            </div>
+                </Paper >
+            </div >
         </>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Container, Typography, Grid, Badge } from "@mui/material";
-import { Card, CardContent, CardActions, Button ,AppBar,Toolbar} from "@mui/material";
+import { Card, CardContent, CardActions, Button, AppBar, Toolbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 async function searchNYT(props) {
@@ -262,7 +262,7 @@ function News() {
     const [gflag, setGflag] = useState(false);
     const [grdNews, setGrdNews] = useState([]);
     const [news100, setNews100] = useState([]);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         console.log(`searching for ${query}`);
         searchNYT(query).then((data) => {
@@ -289,33 +289,39 @@ function News() {
             <div>
                 <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
                 <Toolbar>
-                        <Typography variant="h6" style={{ flexGrow: 1 }}>
-                            <Button onClick={(e)=>{navigate('/')}}>
-                                    GreenPath
-                            </Button>
+                    <Button onClick={(e) => { navigate('/') }} style={{}}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            GreenPath
                         </Typography>
-                    <Button color="inherit">About Us</Button>
-                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            About Us
+                        </Typography>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}><Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                        Contact Us
+                    </Typography></Button>
                 </Toolbar>
             </AppBar>
-            <div style={{ padding: "20px", backgroundColor: "#B4F1C1" }}>
-                <Typography variant="h4" gutterBottom>
-                    Latest News
-                </Typography>
-                <Grid container spacing={3} sx={{ padding: '5px' }}>
-                    {nytNews?.map((news) => (
-                        <Grid item key={news.id} xs={12} sm={6} md={4}>
-                            {nytNewsCard(news)}
-                        </Grid>
-                    ))}
-                    {grdNews?.map((news) => (
-                        <Grid item key={news.id} xs={12} sm={6} md={4}>
-                            {grdNewsCard(news)}
-                        </Grid>
-                    ))}
+                <div style={{ padding: "20px", backgroundColor: "#B4F1C1" }}>
+                    <Typography variant="h4" gutterBottom>
+                        Latest News
+                    </Typography>
+                    <Grid container spacing={3} sx={{ padding: '5px' }}>
+                        {nytNews?.map((news) => (
+                            <Grid item key={news.id} xs={12} sm={6} md={4}>
+                                {nytNewsCard(news)}
+                            </Grid>
+                        ))}
+                        {grdNews?.map((news) => (
+                            <Grid item key={news.id} xs={12} sm={6} md={4}>
+                                {grdNewsCard(news)}
+                            </Grid>
+                        ))}
 
-                </Grid>
-            </div>
+                    </Grid>
+                </div>
             </div>
         );
 

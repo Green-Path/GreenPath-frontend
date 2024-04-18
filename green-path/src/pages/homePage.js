@@ -1,6 +1,11 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Container, Grid, Card, CardContent, CardMedia } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import banner from './banner.jpeg';
+import appli from './appl.jpeg'
+import prod from './prod.png'
+import blogimg from './blogimg.jpeg'
+import bg from './bg.jpeg'
 
 function HomePage() {
     const navigate = useNavigate();
@@ -8,17 +13,25 @@ function HomePage() {
         <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh' }}>
             <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
                 <Toolbar>
-                    <Typography variant="h6" style={{ flexGrow: 1 }}>
-                        GreenPath
-                    </Typography>
-                    <Button color="inherit">About Us</Button>
-                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
+                    <Button onClick={(e) => { navigate('/') }} style={{}}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            GreenPath
+                        </Typography>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}>
+                        <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                            About Us
+                        </Typography>
+                    </Button>
+                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}><Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
+                        Contact Us
+                    </Typography></Button>
                 </Toolbar>
             </AppBar>
             <Container style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                 <Grid container spacing={3} justify="center" alignItems="center">
                     {/* <Grid item xs={12}>
-                        <img src="banner.jpeg" alt="GreenPath Banner" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                        <img src={bg} alt="GreenPath Banner" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
                     </Grid> */}
                     <Grid item xs={12} sm={4}>
                         <Card>
@@ -26,9 +39,9 @@ function HomePage() {
                                 component="img"
                                 alt="Finding Energy-Efficient Appliances"
                                 height="140"
-                                image="banner.jpeg"
+                                image={appli}
                             />
-                            
+
                             <CardContent>
                                 <Button onClick={() => navigate('/appliances')}>
 
@@ -47,14 +60,14 @@ function HomePage() {
                                 component="img"
                                 alt="Finding Energy-Efficient Appliances"
                                 height="140"
-                                image="banner.jpeg"
+                                image={prod}
                             />
-                            
+
                             <CardContent>
                                 <Button onClick={() => navigate('/customer')}>
 
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Finding Energy-Efficient Products
+                                        Energy-Efficient Products
                                     </Typography>
                                 </Button>
                                 <Typography variant="body2" color="textSecondary" component="p">
@@ -68,7 +81,7 @@ function HomePage() {
                                 component="img"
                                 alt="Resources"
                                 height="140"
-                                image="banner.jpeg"
+                                image={banner}
                             />
                             <CardContent>
                                 <Button onClick={() => navigate('/news')}>
@@ -89,7 +102,7 @@ function HomePage() {
                                 component="img"
                                 alt="Zero-Waste Lifestyle"
                                 height="140"
-                                image="banner.jpeg"
+                                image={blogimg}
                             />
                             <CardContent>
                                 <Button onClick={() => navigate('/announcements')}>
