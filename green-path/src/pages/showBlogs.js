@@ -17,7 +17,7 @@ import { Autocomplete } from "@mui/material";
 import { PostAdd as PostAddIcon, Add as AddIcon } from '@mui/icons-material';
 import '../css/AnnouncementSection.css'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-
+import { AppBar, Toolbar, Grid, Card, CardContent, CardMedia } from '@mui/material';
 const Announcements = ({ title }) => {
 
     // const {id} = useParams();
@@ -76,7 +76,21 @@ const Announcements = ({ title }) => {
     const navigate = useNavigate();
 
     return (
+        <div>
+
+<AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
+                <Toolbar>
+                    <Button onClick={(e)=>{navigate('/')}}>
+                        <Typography variant="h6" style={{ flexGrow: 1 }}>
+                            GreenPath
+                        </Typography>
+                    </Button>
+                    <Button color="inherit">About Us</Button>
+                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
+                </Toolbar>
+            </AppBar>
         <div style={{ position: 'relative', padding: "5vh 5vh", backgroundColor: "B4F1C1" }}>
+            
             <Paper sx={{ py: 1, px: 3 }} className="container">
                 <div
                     style={{
@@ -175,6 +189,7 @@ const Announcements = ({ title }) => {
             >
                 <AddIcon />
             </Fab>
+        </div>
         </div>
     );
 };

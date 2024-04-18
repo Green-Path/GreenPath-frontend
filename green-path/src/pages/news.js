@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Container, Typography, Grid, Badge } from "@mui/material";
-import { Card, CardContent, CardActions, Button } from "@mui/material";
-
+import { Card, CardContent, CardActions, Button ,AppBar,Toolbar} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 async function searchNYT(props) {
     const response = await fetch(
@@ -262,6 +262,7 @@ function News() {
     const [gflag, setGflag] = useState(false);
     const [grdNews, setGrdNews] = useState([]);
     const [news100, setNews100] = useState([]);
+    const navigate=useNavigate();
     useEffect(() => {
         console.log(`searching for ${query}`);
         searchNYT(query).then((data) => {
@@ -285,6 +286,18 @@ function News() {
     }
     else {
         return (
+            <div>
+                <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
+                <Toolbar>
+                        <Typography variant="h6" style={{ flexGrow: 1 }}>
+                            <Button onClick={(e)=>{navigate('/')}}>
+                                    GreenPath
+                            </Button>
+                        </Typography>
+                    <Button color="inherit">About Us</Button>
+                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
+                </Toolbar>
+            </AppBar>
             <div style={{ padding: "20px", backgroundColor: "#B4F1C1" }}>
                 <Typography variant="h4" gutterBottom>
                     Latest News
@@ -302,6 +315,7 @@ function News() {
                     ))}
 
                 </Grid>
+            </div>
             </div>
         );
 

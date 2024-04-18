@@ -12,13 +12,34 @@ function HomePage() {
                         GreenPath
                     </Typography>
                     <Button color="inherit">About Us</Button>
-                    <Button color="inherit">Contact</Button>
+                    <Button color="inherit" onClick={(e)=>{navigate('/contactus')}}>Contact</Button>
                 </Toolbar>
             </AppBar>
             <Container style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                 <Grid container spacing={3} justify="center" alignItems="center">
-                    <Grid item xs={12}>
-                        <img src="banner_image.jpg" alt="GreenPath Banner" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                    {/* <Grid item xs={12}>
+                        <img src="banner.jpeg" alt="GreenPath Banner" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                    </Grid> */}
+                    <Grid item xs={12} sm={4}>
+                        <Card>
+                            <CardMedia
+                                component="img"
+                                alt="Finding Energy-Efficient Appliances"
+                                height="140"
+                                image="banner.jpeg"
+                            />
+                            
+                            <CardContent>
+                                <Button onClick={() => navigate('/appliances')}>
+
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Finding Energy-Efficient Appliances
+                                    </Typography>
+                                </Button>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <Card>
@@ -26,8 +47,9 @@ function HomePage() {
                                 component="img"
                                 alt="Finding Energy-Efficient Appliances"
                                 height="140"
-                                image="energy_appliances.jpg"
+                                image="banner.jpeg"
                             />
+                            
                             <CardContent>
                                 <Button onClick={() => navigate('/customer')}>
 
@@ -46,7 +68,7 @@ function HomePage() {
                                 component="img"
                                 alt="Resources"
                                 height="140"
-                                image="resources.jpg"
+                                image="banner.jpeg"
                             />
                             <CardContent>
                                 <Button onClick={() => navigate('/news')}>
@@ -67,7 +89,7 @@ function HomePage() {
                                 component="img"
                                 alt="Zero-Waste Lifestyle"
                                 height="140"
-                                image="zero_waste.jpg"
+                                image="banner.jpeg"
                             />
                             <CardContent>
                                 <Button onClick={() => navigate('/announcements')}>

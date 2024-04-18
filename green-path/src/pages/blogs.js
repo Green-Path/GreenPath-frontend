@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { AppBar, Toolbar,  Grid, Card, CardContent, CardMedia } from '@mui/material';
 import {
   Paper,
   Container,
@@ -85,6 +86,7 @@ const Blogs = () => {
       padding: "5vh 5vw",
       backgroundColor: "#B4F1C1",
     }}>
+        
       <Paper sx={{ py: 1, px: 3 }} className="container">
         <Typography variant="h4" sx={{ mt: 3 }} align="center" gutterBottom>
           Add Blogs

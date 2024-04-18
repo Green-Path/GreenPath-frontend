@@ -37,17 +37,24 @@ import News from './pages/news';
 import Blogs from './pages/blogs';
 import Customer from './pages/customer';
 import Announcements from './pages/showBlogs';
-
+import Card from './pages/card';
+import ContactUs from './pages/contactus'
+import Appliances from './pages/appliances';
+// import AboutUs from './pages/aboutus'
 function App() {
 
   return (
     <Router>
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/c' element={<Card />} />
         <Route path='/news' element={<News />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/customer' element={<Customer />} />
         <Route path='/announcements' element={<Announcements />} />
+        <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/appliances' element={<Appliances/>}/>
+        {/* <Route path='/aboutus' element={<AboutUs />} /> */}
       </Routes>
     </Router>
   );

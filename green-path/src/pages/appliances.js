@@ -4,7 +4,7 @@ import { Paper, Button, Typography,Toolbar,AppBar } from '@mui/material';
 import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams,useHistory } from "react-router-dom";
 
-export default function Customer({ handleSelectChange, handleMinPriceChange, handleMaxPriceChange, fetchItemLink, item1 }) {
+export default function Appliances({ handleSelectChange, handleMinPriceChange, handleMaxPriceChange, fetchItemLink, item1 }) {
     // const history = useHistory();
     const [title, setTitle] = useState("");
     const [minprice, setMinprice] = useState("");
