@@ -67,7 +67,7 @@ function HomePage() {
                                 <Button onClick={() => navigate('/customer')}>
 
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Energy-Efficient Products
+                                        Eco Friendly Products
                                     </Typography>
                                 </Button>
                                 <Typography variant="body2" color="textSecondary" component="p">

@@ -33,7 +33,10 @@ function products(prod) {
           {prod.name}...
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-          Price: {prod.price}
+          price: {prod.price}
+        </Typography>
+        <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+          power Rating: {prod.PowerRating}
         </Typography>
       </CardContent>
       <CardActions sx={{ marginTop: "auto" }}>

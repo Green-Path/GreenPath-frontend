@@ -9,7 +9,7 @@ export default function Appliances({ handleSelectChange, handleMinPriceChange, h
     const [title, setTitle] = useState("");
     const [minprice, setMinprice] = useState("");
     const [maxprice, setMaxprice] = useState("");
-    const [item, setItem] = useState("Laundary");
+    const [item, setItem] = useState("Stove");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState(new Date());
     const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function Appliances({ handleSelectChange, handleMinPriceChange, h
         };
 
         try {
-            const res = await fetch(`http://localhost:5000/products`, {
+            const res = await fetch(`http://localhost:5000/appliances`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -74,7 +74,7 @@ export default function Appliances({ handleSelectChange, handleMinPriceChange, h
                 </Toolbar>
             </AppBar>
             <h2>Help save the environment</h2>
-            <h1>Select your eco-friendly product:</h1>
+            <h1>Select your energy efficient appliance</h1>
 
             <div class="main">
 
@@ -84,10 +84,11 @@ export default function Appliances({ handleSelectChange, handleMinPriceChange, h
                             <div class="product">
                                 <label class="items" for="items">Product: </label>
                                 <select class="itemSelect" onChange={(e) => setItem(e.target.value)}>
-                                    <option value="Laundry">Laundry</option>
-                                    <option value="Kitchen">Kitchen</option>
-                                    <option value="Skin">Personal care</option>
-                                    <option value="Cleaning">Cleaning</option>
+                                    <option value="Stove">Stove</option>
+                                    <option value="Fridge">Fridge</option>
+                                    <option value="AC">AC</option>
+                                    <option value="Washing Machine">Washing Machine</option>
+                                    <option value="Water Heater">Water Heater</option>
                                     {/* <!-- Add more options as needed --> */}
                                 </select>
 
