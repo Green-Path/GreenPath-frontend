@@ -36,6 +36,7 @@ async function searchGRD(props) {
         `https://content.guardianapis.com/search?q=${props}&api-key=5c9058e0-66ea-4f44-bb1a-9155caa1f156&show-fields=all`
     );
     const data = await response.json();
+    console.log(data);
     if (data.response.status === "ok") {
         return data.response.results;
     } else {
@@ -214,13 +215,18 @@ function grdNewsCard(news) {
                 </Typography>
             </CardContent>
             <CardActions sx={{ marginTop: "auto" }}>
-                <Button size="small" href={news.web_url} target="_blank" sx={{
-                    backgroundColor: "#87CEEB", // Light blue button
-                    color: "#FFF", // White text on button
-                    "&:hover": {
-                        backgroundColor: "#7FDBCA", // Lighter blue on hover
-                    }
-                }}>
+                <Button
+                    size="small"
+                    href={news.webUrl}
+                    target="_blank"
+                    sx={{
+                        backgroundColor: "#87CEEB", // Light blue button
+                        color: "#FFF", // White text on button
+                        "&:hover": {
+                            backgroundColor: "#7FDBCA", // Lighter blue on hover
+                        }
+                    }}
+                >
                     Read More
                 </Button>
             </CardActions>
@@ -246,7 +252,13 @@ function apiNewsCard(news) {
                 </Typography>
             </CardContent>
             <CardActions sx={{ marginTop: "auto" }}>
-                <Button size="small" href={news.url} target="_blank">
+                <Button size="small" href={news.web_url} target="_blank" sx={{
+                    backgroundColor: "#87CEEB", // Light blue button
+                    color: "#FFF", // White text on button
+                    "&:hover": {
+                        backgroundColor: "#7FDBCA", // Lighter blue on hover
+                    }
+                }}>
                     Read More
                 </Button>
             </CardActions>
