@@ -74,7 +74,7 @@ export default function Appliances({ handleSelectChange, handleMinPriceChange, h
                 </Toolbar>
             </AppBar>
             <h2>Help save the environment</h2>
-            <h1>Select your eco-friendly product:</h1>
+            <h1>Select your energy efficient appliance</h1>
 
             <div class="main">
 
