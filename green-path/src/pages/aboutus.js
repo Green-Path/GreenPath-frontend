@@ -11,7 +11,6 @@ import img8 from './profile.jpeg'
 import img9 from './profile.jpeg'
 import img10 from './profile.jpeg'
 import img11 from './profile.jpeg'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ProfileCard from './ProfileCard';
 import { useParams, useHistory } from "react-router-dom";
 
@@ -34,7 +33,7 @@ const AboutUs = ({username}) => {
         username: 'Kavya Kumar',
         imageSrc: img2,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/kavya-kumar-587b012a1/' },
         ],
     },
     {
@@ -42,7 +41,7 @@ const AboutUs = ({username}) => {
         username: ' Aaditya Makwana',
         imageSrc: img3,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/aaditya-makwana-396395252/' },
         ],
     },
     {
@@ -50,7 +49,7 @@ const AboutUs = ({username}) => {
         username: 'Shah Saumya',
         imageSrc: img4,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/saumya-shah-923825247/' },
         ],
     },
     {
@@ -58,7 +57,7 @@ const AboutUs = ({username}) => {
         username: ' Gupta Shekhar',
         imageSrc: img5,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/shekhar-gupta-5b422b223/' },
         ],
     },
     {
@@ -66,7 +65,7 @@ const AboutUs = ({username}) => {
         username: ' Himani Singh',
         imageSrc: img6,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/himani-singh-466676269/' },
         ],
     },
     {
@@ -82,7 +81,7 @@ const AboutUs = ({username}) => {
         username: 'Soyantar Dhruva',
         imageSrc: img8,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/dhruva-soyantar-25b225252/' },
         ],
     },
     {
@@ -90,7 +89,7 @@ const AboutUs = ({username}) => {
         username: 'Kacha Shivang',
         imageSrc: img9,
         socialLinks: [
-          {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+          {url: 'https://www.linkedin.com/in/shivang-kacha-1557a3220' },
         ],
     },
     {
@@ -98,7 +97,7 @@ const AboutUs = ({username}) => {
       username: 'Dobariya Jay',
       imageSrc: img10,
       socialLinks: [
-        {url: 'https://www.linkedin.com/in/anjali-jilariya-8b119727a' },
+        {url: 'https://www.linkedin.com/in/jay-dobariya-301438141' },
       ],
     },
     {
