@@ -18,7 +18,7 @@ function HomePage() {
                             GreenPath
                         </Typography>
                     </Button>
-                    <Button color="inherit" onClick={(e) => { navigate('/contactus') }}>
+                    <Button color="inherit" onClick={(e) => { navigate('/aboutus') }}>
                         <Typography variant="h6" style={{ flexGrow: 1, textDecoration: "none", color: "white" }}>
                             About Us
                         </Typography>

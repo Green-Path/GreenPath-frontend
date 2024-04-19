@@ -12,7 +12,7 @@ const ProfileCard = ({ name, username, imageSrc, socialLinks }) => {
                     <p className="text-muted mb-4">@{username}</p>
                     <div className="mb-4 pb-2">
                         {socialLinks.map((link, index) => (
-                            <a key={index} href={link.url}>
+                            <a key={index} href={link.url} target='_blank'>
                                 <button type="button" className="btn btn-outline-primary btn-floating">
                                     View Profile
                                 </button>

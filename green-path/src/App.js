@@ -40,7 +40,7 @@ import Announcements from './pages/showBlogs';
 import Card from './pages/card';
 import ContactUs from './pages/contactus'
 import Appliances from './pages/appliances';
-// import AboutUs from './pages/aboutus'
+import AboutUs from './pages/aboutus'
 function App() {
 
   return (
@@ -53,8 +53,8 @@ function App() {
         <Route path='/customer' element={<Customer />} />
         <Route path='/announcements' element={<Announcements />} />
         <Route path='/contactus' element={<ContactUs />} />
-        <Route path='/appliances' element={<Appliances/>}/>
-        {/* <Route path='/aboutus' element={<AboutUs />} /> */}
+        <Route path='/appliances' element={<Appliances />} />
+        <Route path='/aboutus' element={<AboutUs />} />
       </Routes>
     </Router>
   );

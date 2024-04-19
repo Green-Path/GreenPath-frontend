@@ -35,9 +35,10 @@ function products(prod) {
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
           price: {prod.price}
         </Typography>
-        <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+        {prod.PowerRating && <Typography variant="subtitle2" color="text.secondary" gutterBottom>
           power Rating: {prod.PowerRating}
-        </Typography>
+        </Typography>}
+
       </CardContent>
       <CardActions sx={{ marginTop: "auto" }}>
         <Button
